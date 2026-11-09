@@ -1,0 +1,141 @@
+{
+  "_beschreibung": "VORLAGE für eine neue Reise im Reisebüchlein. So geht's: 1) Diese Datei an Claude geben und z. B. schreiben: 'Erstelle mir nach dieser Vorlage eine Reise Lissabon und Porto vom 3. bis 12. Mai 2027 mit je 25 Orten, Infos, Anreise und großem Sprachführer Portugiesisch.' 2) Die fertige .json-Datei aufs Handy laden. 3) In der App: Reisen › 'Reise importieren' › Datei wählen. Felder, die mit _ beginnen, sind nur Erklärungen und werden beim Import ignoriert. Pflicht sind nur: format, name, von, bis, staedte.",
+  "_regeln": [
+    "format muss genau 'reisebuechlein-reise' sein, version = 1.",
+    "Datumsangaben immer als JJJJ-MM-TT (z. B. 2027-05-03).",
+    "orte[].stadt muss genau wie ein Name in staedte[] geschrieben sein.",
+    "kategorie: 'Sehenswürdigkeit', 'Essen', 'Reserve', 'Ausflug' oder 'Unterkunft'.",
+    "lat/lon (Koordinaten) sind optional – fehlen sie, sucht die App sie online über die Adresse.",
+    "bild_url optional: nur frei lizenzierte Bilder (z. B. Wikimedia Commons, direkte Bild-URL von upload.wikimedia.org) und dann bild_urheber, bild_lizenz, bild_quelle angeben. Die App lädt das Bild einmal herunter und speichert es offline.",
+    "sprachfuehrer: pro Sprache beliebig viele abschnitte; jeder Satz hat de (Deutsch), l (Landessprache), optional u (lateinische Umschrift, z. B. bei Griechisch), a (einfache deutsche Aussprache, betonte Silbe GROSS), info (kurze Erklärung). code = Sprachcode zum Vorlesen, z. B. pt-PT, it-IT, el-GR, es-ES, ca-ES, fr-FR, hr-HR.",
+    "Preise immer mit 'ca.' angeben und unter anreise.stand das Recherche-Datum eintragen."
+  ],
+  "format": "reisebuechlein-reise",
+  "version": 1,
+  "name": "Beispiel: Lissabon & Porto",
+  "von": "2027-05-03",
+  "bis": "2027-05-12",
+  "staedte": [
+    {
+      "name": "Lissabon",
+      "von": "2027-05-03",
+      "bis": "2027-05-08",
+      "intro": "Kurzer Einführungstext zur Stadt: Geschichte, Charakter, wie man sich fortbewegt (3–5 Sätze).",
+      "zentrum": [38.7223, -9.1393],
+      "unterkunft": { "name": "Hotel Beispiel", "adresse": "Rua Augusta 100, 1100-053 Lisboa" }
+    },
+    {
+      "name": "Porto",
+      "von": "2027-05-08",
+      "bis": "2027-05-12",
+      "intro": "Einführungstext Porto.",
+      "unterkunft": { "name": "Apartment Ribeira", "adresse": "Cais da Ribeira 20, 4050-510 Porto" }
+    }
+  ],
+  "orte": [
+    {
+      "stadt": "Lissabon",
+      "kategorie": "Sehenswürdigkeit",
+      "gruppe": "Sehenswürdigkeiten – Altstadt",
+      "name": "Torre de Belém",
+      "adresse": "Av. Brasília, 1400-038 Lisboa",
+      "beschreibung": "Ausführliche Beschreibung mit Geschichte und Hintergrund (4–8 Sätze).",
+      "tipp": "Ein konkreter Insider-Tipp (1–3 Sätze).",
+      "lat": 38.6916,
+      "lon": -9.2160,
+      "bild_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/.../1200px-Beispiel.jpg",
+      "bild_urheber": "Name des Fotografen",
+      "bild_lizenz": "CC BY-SA 4.0",
+      "bild_quelle": "https://commons.wikimedia.org/wiki/File:Beispiel.jpg"
+    },
+    {
+      "stadt": "Lissabon",
+      "kategorie": "Essen",
+      "name": "Pastéis de Belém",
+      "adresse": "R. de Belém 84-92, 1300-085 Lisboa",
+      "beschreibung": "Beschreibung …",
+      "tipp": "Tipp …"
+    },
+    {
+      "stadt": "Porto",
+      "kategorie": "Ausflug",
+      "name": "Douro-Tal",
+      "adresse": "Peso da Régua, Portugal",
+      "beschreibung": "Beschreibung …",
+      "tipp": "Tipp …"
+    }
+  ],
+  "reiseplan": [
+    { "icon": "✈️", "titel": "Flug Berlin (BER) → Lissabon", "datum": "Mo, 3.5.2027", "ort": "Flughafen BER" },
+    { "icon": "🚆", "titel": "Zug Lissabon → Porto", "datum": "Sa, 8.5.2027", "ort": "Lisboa Santa Apolónia" },
+    { "icon": "✈️", "titel": "Rückflug Porto → Berlin (BER)", "datum": "Mi, 12.5.2027", "ort": "Flughafen Porto" }
+  ],
+  "tage": {
+    "2027-05-03": "Anreise",
+    "2027-05-08": "Lissabon → Porto",
+    "2027-05-12": "Abreise"
+  },
+  "infos": {
+    "Lissabon": {
+      "notruf": [ { "nr": "112", "was": "Euro-Notruf" } ],
+      "tickets": [ { "name": "Einzelfahrt Metro", "preis": "ca. 1,85 €" } ],
+      "ticketTipp": "Wo man Tickets kauft, welche Karte sich lohnt.",
+      "trinkgeld": "Trinkgeld-Regeln in 2–3 Sätzen."
+    },
+    "Porto": {
+      "notruf": [ { "nr": "112", "was": "Euro-Notruf" } ],
+      "tickets": [],
+      "ticketTipp": "",
+      "trinkgeld": ""
+    }
+  },
+  "anreise": {
+    "stand": "1. April 2027",
+    "Lissabon": {
+      "knoten": [ { "icon": "✈️", "name": "Flughafen Lissabon (LIS)", "info": "Kurze Beschreibung." } ],
+      "strecken": [
+        {
+          "titel": "Flughafen → Unterkunft",
+          "datum": "Mo, 3.5. – Ankunft",
+          "von": "Aeroporto de Lisboa",
+          "nach": "Rua Augusta 100, Lisboa",
+          "optionen": [
+            { "name": "Metro (rote Linie)", "icon": "🚇", "empfohlen": true, "schritte": ["Schritt 1", "Schritt 2"], "dauer": "ca. 30 Min.", "preis": "ca. 2 €", "ticket": "Automat in der Station" },
+            { "name": "Taxi", "icon": "🚕", "schritte": ["Taxistand vor dem Terminal"], "dauer": "ca. 20 Min.", "preis": "ca. 15–20 €", "ticket": "Im Taxi" }
+          ],
+          "empfehlung": "Klare Empfehlung in einem Satz."
+        }
+      ],
+      "tipps": [ "Welches Ticket sich lohnt", "Gepäck-Tipps", "Abzocke vermeiden" ]
+    }
+  },
+  "sprachfuehrer": [
+    {
+      "sprache": "Portugiesisch",
+      "code": "pt-PT",
+      "staedte": ["Lissabon", "Porto"],
+      "hinweis": "Kurzer Aussprache-Hinweis (z. B. was GROSS bedeutet, besondere Laute).",
+      "abschnitte": [
+        {
+          "titel": "Begrüßung",
+          "saetze": [
+            { "de": "Guten Tag", "l": "Bom dia", "a": "bõ DI-a" },
+            { "de": "Danke", "l": "Obrigado / Obrigada", "a": "o-bri-GA-du / -da", "info": "Mann sagt obrigado, Frau obrigada" }
+          ]
+        },
+        { "titel": "Zahlen und Preise", "saetze": [] },
+        { "titel": "Restaurant und Speisekarte", "saetze": [] },
+        { "titel": "Einkaufen", "saetze": [] },
+        { "titel": "Weg und Verkehr", "saetze": [] },
+        { "titel": "Hotel und Unterkunft", "saetze": [] },
+        { "titel": "Sehenswürdigkeiten", "saetze": [] },
+        { "titel": "Notfall und Gesundheit", "saetze": [] },
+        { "titel": "Small Talk", "saetze": [] }
+      ]
+    }
+  ],
+  "packliste": [
+    { "gruppe": "Dokumente", "text": "Personalausweis" },
+    { "gruppe": "Kleidung", "text": "Sonnenhut" }
+  ]
+}

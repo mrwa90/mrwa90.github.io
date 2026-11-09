@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a6b70" id="themecolor">
+<meta name="description" content="Offline-Reisebüchlein für alle eure Reisen">
+<title>Reisebüchlein</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="leaflet/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css">
+<script>
+try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}catch(e){}
+</script>
+</head>
+<body>
+<main id="app" tabindex="-1"></main>
+<nav id="nav" aria-label="Hauptnavigation">
+  <a href="#/reisen" data-tab="reisen"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Reisen</span></a>
+  <a href="#/karte" data-tab="karte"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg><span>Karte</span></a>
+  <a href="#/reise" data-tab="reise"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M4 12h16"/></svg><span>Reise</span></a>
+  <a href="#/suche" data-tab="suche"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Suche</span></a>
+  <a href="#/daten" data-tab="daten"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span>Daten</span></a>
+</nav>
+<div id="viewer" hidden>
+  <button id="vclose" aria-label="Schließen">✕</button>
+  <img id="vimg" alt="">
+  <button id="vdel" class="danger">Foto löschen</button>
+</div>
+<div id="reminder" hidden></div>
+<div id="toast" hidden></div>
+<noscript>Diese App braucht JavaScript.</noscript>
+<script src="data.js"></script>
+<script src="credits.js"></script>
+<script src="info.js"></script>
+<script src="anreise.js"></script>
+<script src="sprache-wien.js"></script>
+<script src="sprache-el.js"></script>
+<script src="sprache-es.js"></script>
+<script src="sprache-ca.js"></script>
+<script src="leaflet/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
